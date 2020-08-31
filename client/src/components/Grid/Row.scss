@@ -1,0 +1,79 @@
+@import '../../styles/mixins';
+
+$columns: 12;
+$base: 100% / $columns;
+$spacingBase: 4px;
+
+@mixin row($label) {
+  //@for $i from 1 through $columns {
+  //  .#{$label}-#{$i} { width: #{$i * $base}; }
+  //}
+
+  @for $i from 1 through 10 {
+    &.row--spacing-#{$i} {
+      width: calc(100% + #{$i * 2 * $spacingBase});
+      margin: #{$i * -$spacingBase};
+
+      padding-right: $i * $spacingBase;
+      padding-bottom: $i * $spacingBase;
+
+      .col {
+        width: calc(100% - #{2 * $spacingBase});
+        margin-top: $i * $spacingBase;
+        margin-left: $i * $spacingBase;
+
+        @for $j from 1 through $columns {
+          &.col--#{$label}-#{$j} {
+            width: calc(#{$j * $base} - #{$i * $spacingBase});
+          }
+        }
+      }
+    }
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  //@media only screen and (min-width: 0px) {
+  //  @include row('xs');
+  //}
+  //
+  //@media only screen and (min-width: 600px) {
+  //  @include row('sm');
+  //}
+  //
+  //@media only screen and (min-width: 960px) {
+  //  @include row('md');
+  //}
+  //
+  //@media only screen and (min-width: 1280px) {
+  //  @include row('lg');
+  //}
+  //
+  //@media only screen and (min-width: 1920px) {
+  //  @include row('xl');
+  //}
+
+  @media only screen and (min-width: 0px) {
+    @include row('xs');
+  }
+
+  @include for-mobile-l-up {
+    @include row('sm');
+  }
+
+  @include for-tablet-up {
+    @include row('md');
+  }
+
+  @include for-desktop-up {
+    @include row('lg');
+  }
+
+  @include for-desktop-l-up {
+    @include row('xl');
+  }
+}

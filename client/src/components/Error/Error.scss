@@ -1,0 +1,33 @@
+.error-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  height: 250px;
+
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-top: -125px;
+  margin-left: -200px;
+
+  & > * {
+    text-align: center;
+  }
+
+  &--client-error {
+    color: var(--danger);
+  }
+
+  &--server-error {
+    color: var(--primary);
+  }
+
+  &__status {
+    font-size: 144px;
+  }
+
+  &__message {
+    font-size: 24px;
+  }
+}

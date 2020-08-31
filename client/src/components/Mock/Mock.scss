@@ -1,0 +1,34 @@
+.mock-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+
+  --border-color: #777;
+  --border-weight: 1px;
+  --dash-size: 6px;
+  --gap-size: 4px;
+
+  font-size: 1.6rem;
+  padding: 0.8rem;
+  color: #777;
+
+  background:
+  linear-gradient(90deg, var(--border-color) 100%, transparent 100%) top left no-repeat,
+  linear-gradient(90deg, transparent calc(var(--gap-size) / 2), var(--border-color) calc(var(--gap-size) / 2), var(--border-color) calc(var(--gap-size) / 2 + var(--dash-size)), transparent calc(var(--gap-size) / 2 + var(--dash-size))) top center repeat-x,
+  linear-gradient(90deg, var(--border-color) 100%, transparent 100%) top right no-repeat,
+
+  linear-gradient(0deg, var(--border-color) 100%, transparent 100%) top left no-repeat,
+  linear-gradient(0deg, transparent calc(var(--gap-size) / 2), var(--border-color) calc(var(--gap-size) / 2), var(--border-color) calc(var(--gap-size) / 2 + var(--dash-size)), transparent calc(var(--gap-size) / 2 + var(--dash-size))) center left repeat-y,
+  linear-gradient(0deg, var(--border-color) 100%, transparent 100%) bottom left no-repeat,
+
+  linear-gradient(90deg, var(--border-color) 100%, transparent 100%) bottom left no-repeat,
+  linear-gradient(90deg, transparent calc(var(--gap-size) / 2), var(--border-color) calc(var(--gap-size) / 2), var(--border-color) calc(var(--gap-size) / 2 + var(--dash-size)), transparent calc(var(--gap-size) / 2 + var(--dash-size))) bottom center repeat-x,
+  linear-gradient(90deg, var(--border-color) 100%, transparent 100%) bottom right no-repeat,
+
+  linear-gradient(0deg, var(--border-color) 100%, transparent 100%) top right no-repeat,
+  linear-gradient(0deg, transparent calc(var(--gap-size) / 2), var(--border-color) calc(var(--gap-size) / 2), var(--border-color) calc(var(--gap-size) / 2 + var(--dash-size)), transparent calc(var(--gap-size) / 2 + var(--dash-size))) center right repeat-y,
+  linear-gradient(0deg, var(--border-color) 100%, transparent 100%) bottom right no-repeat;
+  background-size: var(--dash-size) var(--border-weight), calc(var(--dash-size) + var(--gap-size)) var(--border-weight), var(--dash-size) var(--border-weight), var(--border-weight) var(--dash-size), var(--border-weight) calc(var(--dash-size) + var(--gap-size)), var(--border-weight) var(--dash-size);
+}

@@ -1,0 +1,14 @@
+.widget-error-indicator {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem;
+
+  & > span {
+    color: var(--danger);
+    font-size: 4rem;
+    margin-bottom: 1.6rem;
+  }
+}
