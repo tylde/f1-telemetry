@@ -1,0 +1,8 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./packages/styles" },
+    { "path": "./packages/core" },
+    { "path": "./packages/form" }
+  ]
+}

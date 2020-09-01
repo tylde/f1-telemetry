@@ -1,0 +1,20 @@
+{
+  "name": "f1-telemetry",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tylde/f1-telemetry.git"
+  },
+  "author": "Mateusz Kalinowski <mr.mkalinowski@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "dependencies": {
+    "@f1-telemetry/constants": "0.1.0",
+    "@f1-telemetry/types": "0.1.0"
+  }
+}
