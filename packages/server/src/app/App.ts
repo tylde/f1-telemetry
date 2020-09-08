@@ -1,10 +1,15 @@
+  import path from 'path';
+  import fs from 'fs';
 import bodyParser from 'body-parser';
 import expressWinston from 'express-winston';
 import winston from 'winston';
 import express from 'express';
+import {ApolloServer} from 'apollo-server-express';
 
 import TelemetryServer from '@f1-telemetry/telemetry-server';
 import {PACKET_KEYS} from '@f1-telemetry/constants';
+
+import schemaResolvers from '../schema/schemaResolvers';
 
 import HttpException from '../exceptions/HttpException';
 import AppRouting from './AppRouting';
@@ -28,6 +33,7 @@ class App {
   public port: number;
   public logger: winston.Logger;
   public routing: AppRouting;
+  private apolloServer: ApolloServer;
 
   private telemetryServer: TelemetryServer;
   private store: IStore;
@@ -37,6 +43,7 @@ class App {
     this.port = port;
     this.logger = logger;
     this.routing = new AppRouting();
+    this.apolloServer = this.createApolloServer();
 
     this.telemetryServer = new TelemetryServer();
     this.store = {
@@ -55,6 +62,7 @@ class App {
     this.extendRequest();
     this.initializeLogger();
     this.initializeMiddlewares();
+    this.initializeGraphQL();
     this.initializeRouting();
     this.initializeErrorHandling();
 
@@ -127,6 +135,25 @@ class App {
   private initializeMiddlewares(): void {
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({extended: true}));
+  }
+
+  private createApolloServer(): ApolloServer {
+    const schemaFilePath = '../schema/schema.graphql';
+    const typeDefs = fs.readFileSync(path.join(__dirname, schemaFilePath), 'utf8');
+
+    return new ApolloServer({
+      typeDefs,
+      resolvers: schemaResolvers,
+      context: ({req: {store}}) => {
+        return {
+          store
+        };
+      }
+    });
+  }
+
+  private initializeGraphQL(): void {
+    this.apolloServer.applyMiddleware({app: this.app});
   }
 
   private initializeRouting(): void {
