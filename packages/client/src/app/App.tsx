@@ -6,7 +6,6 @@ import AppHeader from './AppHeader';
 import AppMain from './AppMain';
 import AppContent from './AppContent';
 import AppRoutes from './AppRoutes';
-import AppFooter from './AppFooter';
 
 function App() {
   return (
@@ -16,7 +15,6 @@ function App() {
         <AppContent>
           <AppRoutes />
         </AppContent>
-        <AppFooter />
       </AppMain>
     </div>
   );
