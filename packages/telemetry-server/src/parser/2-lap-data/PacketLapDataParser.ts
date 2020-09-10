@@ -9,8 +9,7 @@ export class PacketLapDataParser extends PacketParser {
     super();
     this.nest('header', {type: new PacketHeaderParser()});
 
-    this.uint8('numActiveCars');
-    this.array('m_lapData', {length: 22, type: new LapDataParser()})
+    this.array('lapData', {length: 22, type: new LapDataParser()})
   }
 
   fromBuffer(buffer: Buffer): PacketLapData  {

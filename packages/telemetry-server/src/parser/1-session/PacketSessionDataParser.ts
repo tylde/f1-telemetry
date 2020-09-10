@@ -15,7 +15,7 @@ export class PacketSessionDataParser extends PacketParser {
     this.int8('airTemperature');
     this.uint8('totalLaps');
     this.uint16le('trackLength');
-    this.uint8('sessionTypeP');
+    this.uint8('sessionType');
     this.int8('trackId');
     this.uint8('formula');
     this.uint16le('sessionTimeLeft');
