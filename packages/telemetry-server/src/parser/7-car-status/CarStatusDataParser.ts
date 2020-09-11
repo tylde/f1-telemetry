@@ -18,7 +18,9 @@ export class CarStatusDataParser extends PacketParser {
     this.uint16le('idleRPM');
     this.uint8('maxGears');
     this.uint8('drsAllowed');
+
     this.uint16le('drsActivationDistance');
+
     this.array('tyresWear', {length: 4, type: new Parser().uint8('')});
     this.uint8('actualTyreCompound');
     this.uint8('visualTyreCompound');

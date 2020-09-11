@@ -7,6 +7,7 @@ export class LapDataParser extends PacketParser {
     this.floatle('lastLapTime');
     this.floatle('currentLapTime');
 
+    this.uint16le('sector1TimeInMS');
     this.uint16le('sector2TimeInMS');
     this.floatle('bestLapTime');
     this.uint8('bestLapNum');

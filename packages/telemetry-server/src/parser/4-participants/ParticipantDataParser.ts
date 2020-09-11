@@ -9,7 +9,7 @@ export class ParticipantDataParser extends PacketParser {
     this.uint8('teamId');
     this.uint8('raceNumber');
     this.uint8('nationality');
-    this.string('name', {length: 48, stripNull: true})
+    this.string('name', {length: 48, stripNull: true});
     this.uint8('yourTelemetry');
   }
 }
